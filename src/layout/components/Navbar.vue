@@ -37,9 +37,6 @@ export default {
       'name'
     ])
   },
-  created() {
-    console.log(this.name)
-  },
   methods: {
     toggleSideBar() {
       this.$store.dispatch('app/toggleSideBar')

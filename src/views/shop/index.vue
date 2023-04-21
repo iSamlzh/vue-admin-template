@@ -37,7 +37,7 @@
       :current-page="page"
       @current-change="fetchData"
     />
-    <el-dialog ref="model" title="编辑" width="50%" :visible.sync="dialogVisible">
+    <el-dialog ref="model" title="编辑" width="60%" :visible.sync="dialogVisible">
       <el-form ref="form" :model="form">
         <el-form-item label="标题">
           <el-input v-model="form.name" />
@@ -167,8 +167,21 @@ export default {
         detail: ''
       },
       editor: null,
-      toolbarConfig: {},
-      editorConfig: { placeholder: '请输入内容...' },
+      toolbarConfig: {
+        excludeKeys: ['bgColor', 'blockquote', 'fontFamily', 'color', 'insertVideo', 'insertLink', 'uploadVideo', 'editVideoSize', 'code', 'codeBlock', 'codeSelectLang', 'fullScreen']
+      },
+      editorConfig: {
+        placeholder: '请输入内容...',
+        MENU_CONF: {
+          uploadImage: {
+            server: '/api_server/image/upload',
+            fieldName: 'image',
+            customInsert(res, insertFn) {
+              insertFn(res.data.urls)
+            }
+          }
+        }
+      },
       mode: 'default' // or 'simple'
     }
   },

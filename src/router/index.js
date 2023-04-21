@@ -116,9 +116,9 @@ export const constantRoutes = [
     children: [
       {
         path: 'index',
-        name: '排行榜',
+        name: '榜单信息',
         component: () => import('@/views/rank/index'),
-        meta: { title: '排行榜', icon: 'form' }
+        meta: { title: '榜单信息', icon: 'form' }
       }
     ]
   },

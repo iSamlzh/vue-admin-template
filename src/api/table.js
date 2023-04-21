@@ -63,3 +63,19 @@ export function editArticle(data) {
     data
   })
 }
+
+export function getCityRankList(params) {
+  return request({
+    url: '/api_server/admin/city_rank/list',
+    method: 'get',
+    params
+  })
+}
+
+export function editCityRankList(data) {
+  return request({
+    url: '/api_server/admin/city_rank/add',
+    method: 'post',
+    data
+  })
+}

@@ -31,7 +31,6 @@ const mutations = {
 const actions = {
   // user login
   login({ commit }, userInfo) {
-    console.log('user', userInfo)
     const { user, password } = userInfo
     return new Promise((resolve, reject) => {
       login({ user: user.trim(), password: password }).then(response => {
@@ -66,7 +65,6 @@ const actions = {
 
   // remove token
   resetToken({ commit }) {
-    console.log(1111)
     return new Promise(resolve => {
       removeToken() // must remove  token  first
       commit('RESET_STATE')

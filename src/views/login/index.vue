@@ -60,8 +60,8 @@ export default {
     }
     return {
       loginForm: {
-        user: 'gxc',
-        password: 'baichenghui@2023'
+        user: '',
+        password: ''
       },
       loginRules: {
         user: [{ required: true, trigger: 'blur' }],

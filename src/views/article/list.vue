@@ -68,3 +68,8 @@ export default {
 }
 </script>
 
+<style>
+.desc {
+  max-height: 100px;
+}
+</style>

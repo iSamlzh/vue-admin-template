@@ -37,6 +37,7 @@
 <script>
 import { Editor, Toolbar } from '@wangeditor/editor-for-vue'
 import { editArticle, getCityList } from '@/api/table'
+
 export default {
   components: {
     Editor,
@@ -54,8 +55,21 @@ export default {
       citys: [],
       editor: null,
       html: '',
-      toolbarConfig: {},
-      editorConfig: { placeholder: '请输入内容...' },
+      toolbarConfig: {
+        excludeKeys: ['bgColor', 'blockquote', 'fontFamily', 'color', 'insertVideo', 'insertLink', 'uploadVideo', 'editVideoSize', 'code', 'codeBlock', 'codeSelectLang', 'fullScreen']
+      },
+      editorConfig: {
+        placeholder: '请输入内容...',
+        MENU_CONF: {
+          uploadImage: {
+            server: '/api_server/image/upload',
+            fieldName: 'image',
+            customInsert(res, insertFn) {
+              insertFn(res.data.urls)
+            }
+          }
+        }
+      },
       mode: 'default', // or 'simple'
     }
   },
